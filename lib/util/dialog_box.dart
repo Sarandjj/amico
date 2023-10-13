@@ -12,7 +12,7 @@ class CustomHalfCircleDialog extends StatelessWidget {
       contentPadding: const EdgeInsets.symmetric(horizontal: 10.0),
       content: SizedBox(
         width: size.width,
-        height: size.height * .27,
+        height: size.height * .23,
         child: Column(
           //  crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -31,17 +31,15 @@ class CustomHalfCircleDialog extends StatelessWidget {
               "Announcement",
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 20,
+                fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            const SizedBox(
-              height: 20,
-            ),
+            const Expanded(child: SizedBox()),
             const Text(
-              'Vaiyai Amico chit fund private limited chit planes',
+              'Vaiyai Amico chit fund private limited chit plans',
               textAlign: TextAlign.center,
-              style: TextStyle(fontWeight: FontWeight.w300, fontSize: 18),
+              style: TextStyle(fontWeight: FontWeight.w400, fontSize: 18),
             ),
             const SizedBox(
               height: 20,
@@ -58,7 +56,12 @@ class CustomHalfCircleDialog extends StatelessWidget {
               ),
             );
           },
-          child: const Text('yes'),
+          child: const Text(
+            'yes',
+            style: TextStyle(
+              color: Color.fromRGBO(0, 174, 242, 1),
+            ),
+          ),
         ),
       ],
     );

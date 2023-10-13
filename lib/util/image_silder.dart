@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 final List<ImageTextData> data = [
   ImageTextData(
       imagePath: 'asset/image/silder_image/image1.jpg',
-      text: ' The Key to Financial Goals'),
+      text: 'The Key to Financial Goals'),
   ImageTextData(
       imagePath: 'asset/image/silder_image/image2.jpg', text: 'Invest Wisely'),
   ImageTextData(
@@ -15,12 +15,6 @@ final List<ImageTextData> data = [
   ImageTextData(
       imagePath: 'asset/image/silder_image/image5.jpg',
       text: 'Your Savings Is Your Destiny'),
-  ImageTextData(
-      imagePath: 'asset/image/silder_image/image6.jpg', text: 'Page 2 Text'),
-  ImageTextData(
-      imagePath: 'asset/image/silder_image/image7.jpg', text: 'Page 2 Text'),
-  ImageTextData(
-      imagePath: 'asset/image/silder_image/image8.jpg', text: 'Page 2 Text'),
 
   // Add more data as needed
 ];
@@ -65,10 +59,10 @@ class ImageWithTextOverlay extends StatelessWidget {
           child: Text(
             text,
             textAlign: TextAlign.center,
-            style: const TextStyle(
-              color: Color.fromARGB(255, 207, 207, 207),
-              fontSize: 23.0,
-              fontWeight: FontWeight.w500,
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 24.0,
+              fontWeight: FontWeight.w900,
             ),
           ),
         ),

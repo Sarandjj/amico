@@ -1,3 +1,5 @@
+import 'package:amico/constan/constan_colors.dart';
+import 'package:amico/constan/constan_image.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
@@ -13,20 +15,17 @@ class WhatsAppAlartBox extends StatelessWidget {
         'Contact Details',
         style: TextStyle(fontWeight: FontWeight.bold),
       ),
-      contentPadding: const EdgeInsets.symmetric(horizontal: 10.0),
+      contentPadding: const EdgeInsets.symmetric(horizontal: 8.0),
       content: SizedBox(
         width: size.width,
-        height: size.height * .31,
+        height: size.height * .239,
         child: Column(
           children: [
-            const SizedBox(
-              height: 15,
-            ),
             const Padding(
-              padding: EdgeInsets.fromLTRB(0, 0, 30, 20),
+              padding: EdgeInsets.fromLTRB(10, 5, 30, 10),
               child: Text(
                 'Press on the number to open WhatsApp',
-                style: TextStyle(fontWeight: FontWeight.w200, fontSize: 16),
+                style: TextStyle(fontWeight: FontWeight.w300, fontSize: 16),
               ),
             ),
             ElevatedButton(
@@ -34,66 +33,65 @@ class WhatsAppAlartBox extends StatelessWidget {
                 launchUrlString('https://wa.me/9751547171');
               },
               style: ElevatedButton.styleFrom(
-                  fixedSize: const Size(270, 50),
-                  backgroundColor: Colors.blue,
-                  side: const BorderSide(),
+                  fixedSize: const Size(230, 50),
+                  backgroundColor: Colors.white,
+                  side: const BorderSide(width: 1.5),
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15))),
+                      borderRadius: BorderRadius.circular(18))),
               child: Row(
                 children: [
                   Image.asset(
-                    "asset/image/icons/whatsapp.png",
-                    width: 40,
-                    height: 40,
+                    ConstanImage.whatsappButttonImage,
+                    fit: BoxFit.cover,
+                    width: 45,
+                    height: 45,
                   ),
                   const SizedBox(
-                    width: 30,
+                    width: 10,
                   ),
                   const Text(
-                    '9751547171',
+                    '97515 47171',
                     style: TextStyle(
-                      fontSize: 24,
-                      color: Colors.white,
+                      fontSize: 20,
+                      color: ConstanColor.primarycolor,
                     ),
                   )
                 ],
               ),
             ),
             const SizedBox(
-              height: 30,
+              height: 15,
             ),
             ElevatedButton(
               onPressed: () {
                 launchUrlString('https://wa.me/7548867333');
               },
               style: ElevatedButton.styleFrom(
-                  fixedSize: const Size(270, 50),
-                  backgroundColor: Colors.blue,
-                  side: const BorderSide(),
+                  fixedSize: const Size(230, 50),
+                  backgroundColor: Colors.white,
+                  side: const BorderSide(width: 1.5),
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15))),
+                      borderRadius: BorderRadius.circular(18))),
               child: Row(
                 children: [
                   Image.asset(
-                    "asset/image/icons/whatsapp.png",
-                    width: 40,
-                    height: 40,
+                    ConstanImage.whatsappButttonImage,
+                    fit: BoxFit.cover,
+                    width: 45,
+                    height: 45,
                   ),
                   const SizedBox(
-                    width: 30,
+                    width: 10,
                   ),
                   const Text(
-                    '7548867333',
+                    '75488 67333',
                     style: TextStyle(
-                      fontSize: 24,
-                      color: Colors.white,
+                      fontSize: 18,
+                      color: ConstanColor.primarycolor,
                     ),
                   )
                 ],
               ),
-            ),
-            const SizedBox(
-              height: 20,
             ),
           ],
         ),
@@ -103,7 +101,12 @@ class WhatsAppAlartBox extends StatelessWidget {
           onPressed: () {
             Navigator.of(context).pop();
           },
-          child: const Text('Cancel'),
+          child: const Text(
+            'Cancel',
+            style: TextStyle(
+              color: ConstanColor.primarycolor,
+            ),
+          ),
         ),
       ],
     );

@@ -119,7 +119,7 @@ class _GoldPlanePageState extends State<GoldPlanePage>
                     length: imageList.length,
                     initialIndex: _current,
                     vsync: this),
-                selectedColor: const Color.fromRGBO(0, 82, 247, 1),
+                selectedColor: const Color.fromRGBO(0, 174, 242, 1),
                 color: Colors.grey,
                 borderStyle: BorderStyle.none,
               ),

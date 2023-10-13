@@ -1,4 +1,4 @@
-import 'package:amico/screens/home_page.dart';
+import 'package:amico/screens/home/home_page.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -32,8 +32,8 @@ class _SplashScreenState extends State<SplashScreen> {
         const Duration(milliseconds: 500)); // Wait for a short duration
 
     setState(() {
-      logoWidth = 350; // Target width of the logo
-      logoHeight = 350; // Target height of the logo
+      logoWidth = 320; // Target width of the logo
+      logoHeight = 320; // Target height of the logo
     });
 
     // Wait for additional 1 second

@@ -1,3 +1,5 @@
+import 'package:amico/constan/constan_colors.dart';
+import 'package:amico/constan/constan_image.dart';
 import 'package:flutter/material.dart';
 
 import 'package:url_launcher/url_launcher_string.dart';
@@ -17,18 +19,18 @@ class PhoneNumber extends StatelessWidget {
       contentPadding: const EdgeInsets.symmetric(horizontal: 10.0),
       content: SizedBox(
         width: size.width,
-        height: size.height * .28,
+        height: size.height * .21,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const SizedBox(
-              height: 15,
+              height: 8,
             ),
             const Padding(
-              padding: EdgeInsets.fromLTRB(15, 0, 30, 20),
+              padding: EdgeInsets.fromLTRB(10, 0, 30, 10),
               child: Text(
                 'Press on the number to call',
-                style: TextStyle(fontWeight: FontWeight.w200, fontSize: 16),
+                style: TextStyle(fontWeight: FontWeight.w300, fontSize: 16),
               ),
             ),
             ElevatedButton(
@@ -48,33 +50,34 @@ class PhoneNumber extends StatelessWidget {
                 // }
               },
               style: ElevatedButton.styleFrom(
-                  fixedSize: const Size(270, 50),
-                  backgroundColor: Colors.blue,
-                  side: const BorderSide(),
+                  fixedSize: const Size(230, 50),
+                  backgroundColor: Colors.white,
+                  side: const BorderSide(width: 1.5),
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15))),
+                      borderRadius: BorderRadius.circular(18))),
               child: Row(
                 children: [
                   Image.asset(
-                    "asset/image/icons/phone-call.png",
-                    width: 40,
-                    height: 40,
+                    ConstanImage.phonecallButttonImage,
+                    fit: BoxFit.cover,
+                    width: 35,
+                    height: 35,
                   ),
                   const SizedBox(
-                    width: 30,
+                    width: 10,
                   ),
                   const Text(
                     '9751547171',
                     style: TextStyle(
-                      fontSize: 22,
-                      color: Colors.white,
+                      fontSize: 18,
+                      color: ConstanColor.primarycolor,
                     ),
                   )
                 ],
               ),
             ),
             const SizedBox(
-              height: 30,
+              height: 15,
             ),
             ElevatedButton(
               onPressed: () async {
@@ -89,33 +92,31 @@ class PhoneNumber extends StatelessWidget {
                 }
               },
               style: ElevatedButton.styleFrom(
-                  fixedSize: const Size(270, 50),
-                  backgroundColor: Colors.blue,
-                  side: const BorderSide(),
+                  fixedSize: const Size(230, 50),
+                  backgroundColor: Colors.white,
+                  side: const BorderSide(width: 1.5),
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15))),
+                      borderRadius: BorderRadius.circular(18))),
               child: Row(
                 children: [
                   Image.asset(
-                    "asset/image/icons/phone-call.png",
-                    width: 40,
-                    height: 40,
+                    ConstanImage.phonecallButttonImage,
+                    fit: BoxFit.cover,
+                    width: 35,
+                    height: 35,
                   ),
                   const SizedBox(
-                    width: 30,
+                    width: 10,
                   ),
                   const Text(
                     '7548867333',
                     style: TextStyle(
-                      fontSize: 22,
-                      color: Colors.white,
+                      fontSize: 18,
+                      color: ConstanColor.primarycolor,
                     ),
                   )
                 ],
               ),
-            ),
-            const SizedBox(
-              height: 20,
             ),
           ],
         ),
@@ -125,7 +126,12 @@ class PhoneNumber extends StatelessWidget {
           onPressed: () {
             Navigator.of(context).pop();
           },
-          child: const Text('Cancel'),
+          child: const Text(
+            'Cancel',
+            style: TextStyle(
+              color: ConstanColor.primarycolor,
+            ),
+          ),
         ),
       ],
     );
