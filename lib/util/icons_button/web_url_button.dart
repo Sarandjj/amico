@@ -16,21 +16,14 @@ class _WebSiteUrlState extends State<WebSiteUrl> {
   Widget build(BuildContext context) {
     return Expanded(
       child: GestureDetector(
-        onTap: _handleWebButtonClick,
+        onTap: () async {
+          await _handleWebButtonClick();
+        },
         child: Image.asset(
           ConstanImage.webButttonImage,
           fit: BoxFit.cover,
         ),
       ),
-      // child: IconButton(
-      //   onPressed: _handleWebButtonClick,
-      //   icon: Image.asset(
-      //     ConstanImage.webButttonImage,
-
-      //     width: 70,
-      //     height: 70,
-      //   ),
-      // ),
     );
   }
 

@@ -12,7 +12,7 @@ class ChitBox extends StatelessWidget {
     return Center(
       child: Container(
         width: width < 370 ? width * .76 : width * .79,
-        height: height < 800 ? height * .29 : height * .33,
+        height: height < 800 ? height * .33 : height * .34,
         decoration: BoxDecoration(
           // color: Color.fromARGB(255, 0, 0, 0),
           borderRadius: BorderRadius.circular(40),
@@ -31,18 +31,20 @@ class ChitBox extends StatelessWidget {
         ),
         child: Column(
           children: [
+            const Expanded(child: SizedBox()),
             Padding(
-              padding: EdgeInsets.fromLTRB(25, 25, 25, 0),
+              padding: const EdgeInsets.fromLTRB(25, 25, 25, 0),
               child: Text(
-                'Manage your wealth and see it grow with us',
+                'Manage your wealth and see it grow with us .',
                 style: TextStyle(
-                  fontSize: width < 370 ? 20 : 28,
+                  fontSize: width < 380 ? 22 : 28,
                   fontWeight: FontWeight.w400,
                 ),
               ),
             ),
-            SizedBox(
-              height: height < 800 ? height * .02 : height * .04,
+            const Expanded(child: SizedBox()),
+            const SizedBox(
+              height: 40,
             ),
             Center(
               child: ElevatedButton(
@@ -50,7 +52,7 @@ class ChitBox extends StatelessWidget {
                   side: const BorderSide(color: Colors.black, width: 1.2),
                   elevation: 18,
                   backgroundColor: ConstanColor.primarycolor,
-                  fixedSize: const Size(190, 40),
+                  fixedSize: const Size(190, 50),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(18),
                   ),
@@ -71,6 +73,10 @@ class ChitBox extends StatelessWidget {
                 ),
               ),
             ),
+            const SizedBox(
+              height: 35,
+            ),
+            const Expanded(child: SizedBox()),
           ],
         ),
       ),

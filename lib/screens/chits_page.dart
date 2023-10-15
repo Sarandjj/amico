@@ -11,7 +11,7 @@ class GoldPlanePage extends StatefulWidget {
 
 class _GoldPlanePageState extends State<GoldPlanePage>
     with TickerProviderStateMixin {
-  bool _isLoad = true;
+  // final bool _isLoad = true;
   final List<String> imageList = [
     'asset/image/planes/page1.jpg',
     'asset/image/planes/page2.jpg',
@@ -27,8 +27,18 @@ class _GoldPlanePageState extends State<GoldPlanePage>
 
   final PageController _pageController = PageController();
 
+  // Add a variable to track whether sharing is in progress.
+  bool _sharingInProgress = false;
+
+  @override
+  void dispose() {
+    // Dispose of the PageController.
+    _pageController.dispose();
+    super.dispose();
+  }
+
   void _onShareXFileFromAssets(BuildContext context) async {
-    if (!_isLoad) {
+    if (_sharingInProgress) {
       // Sharing is already in progress, ignore this tap.
       return;
     }
@@ -37,92 +47,100 @@ class _GoldPlanePageState extends State<GoldPlanePage>
     final box = context.findRenderObject() as RenderBox?;
 
     setState(() {
-      _isLoad = false; // Disable further taps until sharing is complete.
+      _sharingInProgress =
+          true; // Disable further taps until sharing is complete.
     });
 
-    final data = await rootBundle.load(imageFilePath);
-    final buffer = data.buffer;
-    await Share.shareXFiles(
-      [
-        XFile.fromData(
-          buffer.asUint8List(data.offsetInBytes, data.lengthInBytes),
-          name: 'plane.jpg',
-          mimeType: 'image/jpeg',
-        ),
-      ],
-      sharePositionOrigin: box!.localToGlobal(Offset.zero) & box.size,
-    );
-
-    setState(() {
-      _isLoad = true; // Re-enable taps after sharing is complete.
-    });
+    try {
+      final data = await rootBundle.load(imageFilePath);
+      final buffer = data.buffer;
+      await Share.shareXFiles(
+        [
+          XFile.fromData(
+            buffer.asUint8List(data.offsetInBytes, data.lengthInBytes),
+            name: 'Chit_Schemes.jpg',
+            mimeType: 'image/jpeg',
+          ),
+        ],
+        sharePositionOrigin: box!.localToGlobal(Offset.zero) & box.size,
+      );
+    } finally {
+      if (mounted) {
+        setState(() {
+          _sharingInProgress =
+              false; // Re-enable taps after sharing is complete.
+        });
+      }
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
     bool isIOS = Theme.of(context).platform == TargetPlatform.iOS;
 
     // Adjust the height to account for the safe area on iOS
-    if (isIOS) {
-      height -= MediaQuery.of(context).padding.top;
-    }
+    if (isIOS) {}
+
     return Scaffold(
       body: SafeArea(
         child: Column(
           children: [
-            Stack(
-              alignment: Alignment.topLeft,
-              children: [
-                SizedBox(
-                  width: width,
-                  height: height - 55,
-                  child: GestureDetector(
-                    onTap: () {
-                      _onShareXFileFromAssets(context);
-                    },
-                    child: PageView.builder(
-                      controller: _pageController,
-                      itemCount: imageList.length,
-                      onPageChanged: (value) {
-                        setState(() {
-                          _current = value;
-                        });
-                      },
-                      itemBuilder: (context, index) {
-                        return Image.asset(
-                          imageList[index],
-                          fit: BoxFit.fill,
-                        );
-                      },
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: IconButton(
-                    icon: const Icon(
-                      Icons.arrow_back,
-                      color: Colors.black,
-                    ),
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
-                  ),
-                ),
-              ],
-            ),
             Expanded(
-              child: TabPageSelector(
-                controller: TabController(
-                    length: imageList.length,
-                    initialIndex: _current,
-                    vsync: this),
-                selectedColor: const Color.fromRGBO(0, 174, 242, 1),
-                color: Colors.grey,
-                borderStyle: BorderStyle.none,
+              child: Stack(
+                alignment: Alignment.topLeft,
+                children: [
+                  SizedBox(
+                    width: width,
+                    child: GestureDetector(
+                      onTap: () {
+                        _onShareXFileFromAssets(context);
+                      },
+                      child: PageView.builder(
+                        controller: _pageController,
+                        itemCount: imageList.length,
+                        onPageChanged: (value) {
+                          if (mounted) {
+                            setState(() {
+                              _current = value;
+                            });
+                          }
+                        },
+                        itemBuilder: (context, index) {
+                          return Image.asset(
+                            imageList[index],
+                            fit: BoxFit.fill,
+                          );
+                        },
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: IconButton(
+                      icon: const Icon(
+                        Icons.arrow_back_rounded,
+                        color: Colors.black,
+                        size: 30,
+                      ),
+                      onPressed: () {
+                        if (mounted) {
+                          Navigator.of(context).pop();
+                        }
+                      },
+                    ),
+                  ),
+                ],
               ),
+            ),
+            TabPageSelector(
+              controller: TabController(
+                  length: imageList.length,
+                  initialIndex: _current,
+                  vsync: this),
+              selectedColor: const Color.fromRGBO(0, 174, 242, 1),
+              color: Colors.grey,
+              borderStyle: BorderStyle.none,
             ),
           ],
         ),

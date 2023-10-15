@@ -17,7 +17,9 @@ class _InatagramButtonState extends State<IntagramButton> {
   Widget build(BuildContext context) {
     return Expanded(
       child: GestureDetector(
-        onTap: _handleInstaButtonClick,
+        onTap: () async {
+          await _handleInstaButtonClick();
+        },
         child: Image.asset(
           ConstanImage.instagramButttonImage,
           fit: BoxFit.cover,

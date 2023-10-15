@@ -2,13 +2,14 @@ import 'package:amico/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   // Set the preferred orientation to portrait-up
-  SystemChrome.setPreferredOrientations([
+  await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
   ]);
+
   runApp(const MyApp());
 }
 

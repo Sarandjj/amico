@@ -16,7 +16,9 @@ class _WhatsappButtonState extends State<WhatsappButton> {
   Widget build(BuildContext context) {
     return Expanded(
       child: GestureDetector(
-        onTap: _handleWhatsButtonClick,
+        onTap: () async {
+          await _handleWhatsButtonClick();
+        },
         child: Image.asset(
           ConstanImage.whatsappButttonImage,
           fit: BoxFit.cover,
@@ -35,7 +37,7 @@ class _WhatsappButtonState extends State<WhatsappButton> {
       showDialog(
         context: context,
         builder: (context) {
-          return const WhatsAppAlartBox();
+          return const WhatsAppAlertDialog();
         },
       );
 

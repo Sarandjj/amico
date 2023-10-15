@@ -17,28 +17,18 @@ class _FacebookButtonState extends State<FacebookButton> {
   Widget build(BuildContext context) {
     return Expanded(
       child: GestureDetector(
-        onTap: () => _handleFaceButtonClick(
-          Links.facebookUrl,
-          Links.facebookIdNo,
-        ),
+        onTap: () async {
+          await _handleFaceButtonClick();
+        },
         child: Image.asset(
           ConstanImage.facebookButttonImage,
           fit: BoxFit.fill,
         ),
       ),
-      // child: IconButton(
-      //   onPressed: () {
-      //     _handleFaceButtonClick(
-      //       Links.facebookUrl,
-      //       Links.facebookIdNo,
-      //     );
-      //   },
-      //   icon: Image.asset(ConstanImage.facebookButttonImage),
-      // ),
     );
   }
 
-  Future<void> _handleFaceButtonClick(String url, String fallbackUrl) async {
+  Future<void> _handleFaceButtonClick() async {
     if (!_isFaceButtonDisabled) {
       // Disable the button to prevent multiple clicks
       setState(() {
@@ -51,7 +41,7 @@ class _FacebookButtonState extends State<FacebookButton> {
         //return true;
       } catch (e) {
         try {
-          await launchUrlString(Links.facebookIdNo,
+          await launchUrlString(Links.facebookUrl,
               mode: LaunchMode.externalApplication);
           // return true;
         } catch (e) {

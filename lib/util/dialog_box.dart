@@ -9,20 +9,22 @@ class CustomHalfCircleDialog extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     return AlertDialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-      contentPadding: const EdgeInsets.symmetric(horizontal: 10.0),
+      contentPadding: const EdgeInsets.symmetric(horizontal: 5.0),
       content: SizedBox(
-        width: size.width,
+        width: double.infinity,
         height: size.height * .23,
         child: Column(
           //  crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const SizedBox(
-              height: 15,
+              height: 10,
             ),
+            const Expanded(child: SizedBox()),
             Image.asset(
               "asset/image/logo/logoonly.png",
-              height: 50,
+              height: 55,
+              width: 50,
             ),
             const SizedBox(
               height: 10,
@@ -36,14 +38,19 @@ class CustomHalfCircleDialog extends StatelessWidget {
               ),
             ),
             const Expanded(child: SizedBox()),
+            const SizedBox(
+              height: 10,
+            ),
+            const Expanded(child: SizedBox()),
             const Text(
               'Vaiyai Amico chit fund private limited chit plans',
               textAlign: TextAlign.center,
-              style: TextStyle(fontWeight: FontWeight.w400, fontSize: 18),
+              style: TextStyle(fontWeight: FontWeight.w400, fontSize: 16),
             ),
             const SizedBox(
-              height: 20,
+              height: 10,
             ),
+            const Expanded(child: SizedBox()),
           ],
         ),
       ),

@@ -6,6 +6,8 @@ class ConstanImage {
   static const instagramButttonImage = 'asset/image/icons/instagram.png';
   static const facebookButttonImage = 'asset/image/icons/facebook.png';
   static const phonecallButttonImage = 'asset/image/icons/phonecall3.png';
-  static const whatsappButttonImage = 'asset/image/icons/whatsapp5.png';
+  static const whatsappButttonImage = 'asset/image/icons/whatsapp1.png';
+  static const whatsapp2ButttonImage = 'asset/image/icons/whatsapp5.png';
+
   static const locationButttonImage = 'asset/image/icons/location.png';
 }

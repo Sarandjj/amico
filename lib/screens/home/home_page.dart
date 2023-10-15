@@ -18,16 +18,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  // final List<String> imageList = [
-  //   'assets/amicologo.webp',
-  //   'assets/facebook.webp',
-  //   'assets/globe.webp',
-  //   'assets/instagram.webp',
-  //   'assets/telephone-call.webp',
-  //   'assets/whatsapp.webp',
-  //   'assets/youtube.webp',
-  //   'assets/placeholder.webp',
-  // ];
   @override
   void initState() {
     super.initState();
@@ -66,18 +56,23 @@ class _HomePageState extends State<HomePage> {
             end: Alignment.bottomRight,
           ),
         ),
-        child: Column(
+        child: const Column(
           children: [
-            const SizedBox(
+            SizedBox(
               height: 10,
             ),
-            const CarouselSliderImage(),
+            Expanded(child: SizedBox()),
+            CarouselSliderImage(),
+            Expanded(child: SizedBox()),
             SizedBox(
-              height: height * .08,
+              height: 40,
             ),
-            const ChitBox(),
-            const Expanded(child: SizedBox()),
-            const Row(
+            ChitBox(),
+            Expanded(child: SizedBox()),
+            SizedBox(
+              height: 40,
+            ),
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(
@@ -112,8 +107,8 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],
             ),
-            const SizedBox(
-              height: 50,
+            SizedBox(
+              height: 40,
             )
           ],
         ),

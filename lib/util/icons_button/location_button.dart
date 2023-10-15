@@ -17,21 +17,14 @@ class _LocationButtonState extends State<LocationButton> {
   Widget build(BuildContext context) {
     return Expanded(
       child: GestureDetector(
-        onTap: () => _handleMapButtonClick,
+        onTap: () async {
+          await _handleMapButtonClick();
+        },
         child: Image.asset(
           ConstanImage.locationButttonImage,
           fit: BoxFit.cover,
         ),
       ),
-      // child: IconButton(
-      //   onPressed: _handleMapButtonClick,
-      //   icon: Image.asset(
-      //     ConstanImage.locationButttonImage,
-      //     height: 55,
-      //     width: 55,
-      //     fit: BoxFit.cover,
-      //   ),
-      // ),
     );
   }
 

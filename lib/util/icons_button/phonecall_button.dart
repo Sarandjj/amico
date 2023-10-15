@@ -16,19 +16,14 @@ class _PhoneCallButtonState extends State<PhoneCallButton> {
   Widget build(BuildContext context) {
     return Expanded(
       child: GestureDetector(
-        onTap: _handlePhoneButtonClick,
+        onTap: () async {
+          await _handlePhoneButtonClick();
+        },
         child: Image.asset(
           ConstanImage.phonecallButttonImage,
           fit: BoxFit.cover,
         ),
       ),
-      // child: IconButton(
-      //   onPressed: _handlePhoneButtonClick,
-      //   // iconSize: 35,
-      //   icon: Image.asset(
-      //     ConstanImage.phonecallButttonImage,
-      //   ),
-      // ),
     );
   }
 

@@ -1,3 +1,4 @@
+import 'package:amico/constan/constan_image.dart';
 import 'package:amico/screens/home/home_page.dart';
 import 'package:flutter/material.dart';
 
@@ -80,7 +81,7 @@ class _SplashScreenState extends State<SplashScreen> {
             width: logoWidth,
             height: logoHeight,
             child: Image.asset(
-              'asset/image/logo/amicologoe.png', // Replace with your logo image path
+              ConstanImage.amicologoe, // Replace with your logo image path
             ),
           ),
         ),

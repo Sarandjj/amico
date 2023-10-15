@@ -7,7 +7,6 @@ class CarouselSliderImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return Container(
       padding: const EdgeInsets.all(4),
@@ -16,7 +15,7 @@ class CarouselSliderImage extends StatelessWidget {
           //     style: BorderStyle.solid, width: 2, color: Colors.blue),
           ),
       height: height * .23,
-      width: width,
+      width: double.infinity,
       child: Card(
         surfaceTintColor: Colors.black,
         color: Colors.white54,
