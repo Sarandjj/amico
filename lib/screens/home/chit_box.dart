@@ -37,7 +37,7 @@ class ChitBox extends StatelessWidget {
               child: Text(
                 'Manage your wealth and see it grow with us .',
                 style: TextStyle(
-                  fontSize: width < 380 ? 22 : 28,
+                  fontSize: width < 380 ? 20 : 25,
                   fontWeight: FontWeight.w400,
                 ),
               ),
@@ -52,7 +52,7 @@ class ChitBox extends StatelessWidget {
                   side: const BorderSide(color: Colors.black, width: 1.2),
                   elevation: 18,
                   backgroundColor: ConstanColor.primarycolor,
-                  fixedSize: const Size(190, 50),
+                  fixedSize: const Size(200, 50),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(18),
                   ),

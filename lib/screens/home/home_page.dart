@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> {
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: height * .09,
+        toolbarHeight: height * .1,
         elevation: 6,
         backgroundColor: ConstanColor.primarycolor,
         centerTitle: true,
